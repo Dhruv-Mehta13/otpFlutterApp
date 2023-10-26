@@ -125,18 +125,40 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               children: [
                 Expanded(
-                  child: SizedBox(
-                    width: 20,
-                  ),
+                  flex: 1, // Flex for left side space
+                  child:
+                      Container(), // You can use an empty Container or SizedBox here
                 ),
                 Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber),
-                  ),
+                    flex: 10, // Flex for the middle Container
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [Color(0xFFFF8D4D), Color(0xFFF87C47)],
+                          ), // Background color
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Continue",
+                            style: TextStyle(
+                              color: Colors.white, // Text color
+                              fontSize: 18, // Text size
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+                Expanded(
+                  flex: 1, // Flex for right side space
+                  child:
+                      Container(), // You can use an empty Container or SizedBox here
                 ),
               ],
             )
