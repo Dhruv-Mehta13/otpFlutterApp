@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/second_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
       ),
@@ -90,8 +92,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey)),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors
+                                  .grey), // Change the focused border color to grey
+                          borderRadius:
+                              BorderRadius.circular(20), // Rounded border
+                        ),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(20)),
                         labelText: 'Email',
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         suffixIcon: Icon(Icons.edit)),
@@ -109,8 +118,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey)),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors
+                                  .grey), // Change the focused border color to grey
+                          borderRadius:
+                              BorderRadius.circular(20), // Rounded border
+                        ),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(20)),
                         labelText: 'phone number',
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         suffixIcon: Icon(Icons.phone)),
@@ -132,7 +148,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                     flex: 10, // Flex for the middle Container
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => confirmation_page()),
+                        );
+                      },
                       child: Container(
                         width: double.infinity,
                         height: 50,
